@@ -1,10 +1,32 @@
-# Getting Started with Create React App
+## Symptom Checker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Getting Started with React App Symptom Checker
+
+Name of the React App: check-symptoms-app
+
+Clone Git repo on your local machine
+
+Use command ### `cd check-symptoms-app`
+
+run ### `npm install` to install all packages
+
+### `git pull` to get the latest version
+
+## Font-family: Montserrat
+
+[https://github.com/fontsource/fontsource/tree/main/fonts/google/montserrat](https://github.com/fontsource/fontsource/tree/main/fonts/google/montserrat) Montserrat GitHub link
+
+## Installed React Router DOM
+
+Project's structure is groups similar files together
+
+[https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) React Router DOM installation link
+
+## Grouping by file type
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, run:
 
 ### `npm start`
 
@@ -38,28 +60,6 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
