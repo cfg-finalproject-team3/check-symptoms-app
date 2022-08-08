@@ -6,11 +6,11 @@ Name of the React App: check-symptoms-app
 
 Clone Git repo on your local machine
 
-Use command ### `cd check-symptoms-app`
+Use command `cd check-symptoms-app`
 
-run ### `npm install` to install all packages
+run `npm install` to install all packages
 
-### `git pull` to get the latest version
+`git pull` to get the latest version
 
 ## Font-family: Montserrat
 
