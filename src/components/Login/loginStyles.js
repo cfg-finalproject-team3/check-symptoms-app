@@ -6,11 +6,11 @@ const paperStyle = makeStyles((theme) => ({
     height: "auto",
     width: 526,
     margin: "20px auto",
-    // backgroundColor: "#f5f5f5",
     backgroundColor: "#f5f5f5",
     borderRadius: 15,
     color: "#070C3A",
   },
+
   btnStyle: {
     borderRadius: 15,
     backgroundColor: "#2368AD",
