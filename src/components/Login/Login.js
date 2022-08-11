@@ -1,7 +1,9 @@
 import React from "react";
 import "./Login.css";
+import Axios from "axios";
 
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
+
 import paperStyle from "./loginStyles";
 
 import {
@@ -16,112 +18,115 @@ import {
 function Login() {
   const classes = paperStyle();
 
-  const userRef = useRef();
-  const errRef = useRef();
+  const [emailLogin, setEmailLogin] = useState("");
+  const [passwordLogin, setPasswordLogin] = useState("");
 
-  const [user, setUser] = useState("");
-  const [pwd, setPwd] = useState("");
-  const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
+  const login = () => {
+    Axios({
+      method: "POST",
+      data: {
+        username: emailLogin,
+        password: passwordLogin,
+      },
+      withCredentials: true,
+      url: "http://localhost:4000/login",
+    }).then((res) => {
+      if (res.status === 200) {
+        window.location.href = "/account";
+      }
+    });
+  };
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
+  const getUser = () => {
+    Axios({
+      method: "GET",
 
-  useEffect(() => {
-    setErrMsg("");
-  }, [user, pwd]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+      withCredentials: true,
+      url: "http://localhost:4000/account",
+    }).then((res) => console.log(res));
   };
 
   return (
     <>
-      <Grid>
-        <Paper elevation={10} className={classes.paper}>
-          <section>
-            <Grid align="center">
-              <Typography
-                variant="subtitle1"
-                gutterBottom
-                ref={errRef}
-                className={errMsg ? "errmsg" : "offscreen"}
-                aria-live="assertive"
-              >
-                {errMsg}
-              </Typography>
+      <section className={classes.container}>
+        <Grid>
+          <Paper elevation={10} className={classes.paper}>
+            <section>
+              <Grid align="center">
+                <h1>Login</h1>
 
-              <h1>Login</h1>
+                <Typography
+                  variant="subtitle2"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Don't have an account already?
+                  <span className="line">
+                    {/* Router link here */}
+                    <Link href="#" className={classes.formLink}>
+                      Register
+                    </Link>
+                  </span>
+                </Typography>
+              </Grid>
 
-              <Typography
-                variant="subtitle2"
-                gutterBottom
-                className={classes.typography}
-              >
-                Don't have an account already?
-                <span className="line">
-                  {/* Router link here */}
-                  <Link href="#" className={classes.formLink}>
-                    Register
-                  </Link>
-                </span>
-              </Typography>
-            </Grid>
+              <form>
+                <TextField
+                  label="Email address"
+                  variant="outlined"
+                  type="email"
+                  autoComplete="off"
+                  fullWidth
+                  margin="normal"
+                  size="small"
+                  className={classes.textField}
+                  onChange={(e) => {
+                    setEmailLogin(e.target.value);
+                  }}
+                  required
+                />
 
-            <form onSubmit={handleSubmit}>
-              <TextField
-                id="email"
-                label="Email address"
-                variant="outlined"
-                type="email"
-                ref={userRef}
-                autoComplete="off"
-                onChange={(e) => setUser(e.target.value)}
-                value={user}
-                fullWidth
-                margin="normal"
-                size="small"
-                className={classes.textField}
-                required
-              />
+                <TextField
+                  variant="outlined"
+                  type="password"
+                  label="Password (8+ characters)"
+                  fullWidth
+                  margin="normal"
+                  size="small"
+                  className={classes.textField}
+                  onChange={(e) => {
+                    setPasswordLogin(e.target.value);
+                  }}
+                  required
+                />
+                <Typography variant="subtitle2" gutterBottom>
+                  <span className="line">
+                    {/* Router link here */}
+                    <Link href="#" className={classes.formLink}>
+                      Forgot password?
+                    </Link>
+                  </span>
+                </Typography>
+                <br />
 
-              <TextField
-                id="password"
-                variant="outlined"
-                type="password"
-                ref={userRef}
-                onChange={(e) => setPwd(e.target.value)}
-                value={pwd}
-                label="Password (8+ characters)"
-                fullWidth
-                margin="normal"
-                size="small"
-                className={classes.textField}
-                required
-              />
-              <Typography variant="subtitle2" gutterBottom>
-                <span className="line">
-                  {/* Router link here */}
-                  <Link href="#" className={classes.formLink}>
-                    Forgot password?
-                  </Link>
-                </span>
-              </Typography>
-              <br />
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  className={classes.btnStyle}
+                  onClick={login}
+                >
+                  Login
+                </Button>
 
-              <Button
-                variant="contained"
-                color="primary"
-                fullWidth
-                className={classes.btnStyle}
-              >
-                Login
-              </Button>
-            </form>
-          </section>
-        </Paper>
-      </Grid>
+                <div>
+                  <button onClick={getUser}>Go to profile</button>
+                </div>
+              </form>
+            </section>
+          </Paper>
+        </Grid>
+      </section>
     </>
   );
 }
