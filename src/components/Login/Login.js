@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-
+import Box from "@mui/material/Box";
 import { useRef, useState, useEffect } from "react";
 import paperStyle from "./loginStyles";
 
@@ -38,90 +38,106 @@ function Login() {
 
   return (
     <>
-      <Grid>
-        <Paper elevation={10} className={classes.paper}>
-          <section>
-            <Grid align="center">
-              <Typography
-                variant="subtitle1"
-                gutterBottom
-                ref={errRef}
-                className={errMsg ? "errmsg" : "offscreen"}
-                aria-live="assertive"
-              >
-                {errMsg}
-              </Typography>
+      <Box
+        sx={{
+          minHeight: "100%",
+          position: "fixed",
+          zIndex: 40,
+          inset: 0,
+          display: { xs: "none", sm: "block" },
+          backgroundPosition: 'top left',
+          backgroundImage:
+            "url(https://res.cloudinary.com/dl6pfjd5w/image/upload/v1660085941/symptom%20checker/background-1_kptzse.png)",
+        }}
+      >
+        <Grid style={{
+                paddingTop: 64,
+              }}>
+          <Paper elevation={10} className={classes.paper}>
+            <section
+            >
+              <Grid align="center">
+                <Typography
+                  variant="subtitle1"
+                  gutterBottom
+                  ref={errRef}
+                  className={errMsg ? "errmsg" : "offscreen"}
+                  aria-live="assertive"
+                >
+                  {errMsg}
+                </Typography>
 
-              <h1>Login</h1>
+                <h1>Login</h1>
 
-              <Typography
-                variant="subtitle2"
-                gutterBottom
-                className={classes.typography}
-              >
-                Don't have an account already?
-                <span className="line">
-                  {/* Router link here */}
-                  <Link href="#" className={classes.formLink}>
-                    Register
-                  </Link>
-                </span>
-              </Typography>
-            </Grid>
+                <Typography
+                  variant="subtitle2"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Don't have an account already?
+                  <span className="line">
+                    {/* Router link here */}
+                    <Link href="#" className={classes.formLink}>
+                      Register
+                    </Link>
+                  </span>
+                </Typography>
+              </Grid>
 
-            <form onSubmit={handleSubmit}>
-              <TextField
-                id="email"
-                label="Email address"
-                variant="outlined"
-                type="email"
-                ref={userRef}
-                autoComplete="off"
-                onChange={(e) => setUser(e.target.value)}
-                value={user}
-                fullWidth
-                margin="normal"
-                size="small"
-                className={classes.textField}
-                required
-              />
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  id="email"
+                  label="Email address"
+                  variant="outlined"
+                  type="email"
+                  ref={userRef}
+                  autoComplete="off"
+                  onChange={(e) => setUser(e.target.value)}
+                  value={user}
+                  fullWidth
+                  margin="normal"
+                  size="small"
+                  className={classes.textField}
+                  required
+                />
 
-              <TextField
-                id="password"
-                variant="outlined"
-                type="password"
-                ref={userRef}
-                onChange={(e) => setPwd(e.target.value)}
-                value={pwd}
-                label="Password (8+ characters)"
-                fullWidth
-                margin="normal"
-                size="small"
-                className={classes.textField}
-                required
-              />
-              <Typography variant="subtitle2" gutterBottom>
-                <span className="line">
-                  {/* Router link here */}
-                  <Link href="#" className={classes.formLink}>
-                    Forgot password?
-                  </Link>
-                </span>
-              </Typography>
-              <br />
+                <TextField
+                  id="password"
+                  variant="outlined"
+                  type="password"
+                  ref={userRef}
+                  onChange={(e) => setPwd(e.target.value)}
+                  value={pwd}
+                  label="Password (8+ characters)"
+                  fullWidth
+                  margin="normal"
+                  size="small"
+                  className={classes.textField}
+                  required
+                />
+                <Typography variant="subtitle2" gutterBottom>
+                  <span className="line">
+                    {/* Router link here */}
+                    <Link href="#" className={classes.formLink}>
+                      Forgot password?
+                    </Link>
+                  </span>
+                </Typography>
+                <br />
 
-              <Button
-                variant="contained"
-                color="primary"
-                fullWidth
-                className={classes.btnStyle}
-              >
-                Login
-              </Button>
-            </form>
-          </section>
-        </Paper>
-      </Grid>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  className={classes.btnStyle}
+                >
+                  Login
+                </Button>
+              </form>
+            </section>
+          </Paper>
+        </Grid>
+      </Box>
     </>
   );
 }

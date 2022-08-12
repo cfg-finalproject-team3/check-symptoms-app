@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import App from "./App";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import About from "./components/About/About";
@@ -13,8 +15,10 @@ import reportWebVitals from "./reportWebVitals";
 const Routing = () => {
   return (
     <Router>
+    
+    <Header />
       <div>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -35,7 +39,7 @@ const Routing = () => {
               <Link to="account">Account</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <Routes>
           <Route path="/" index element={<App />} />
           <Route path="/about" element={<About />} />
@@ -44,6 +48,7 @@ const Routing = () => {
           <Route path="/register" element={<Registration />} />
           <Route path="/account" element={<Account />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
@@ -52,8 +57,9 @@ const Routing = () => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+   
     <Routing />
   </React.StrictMode>
 );
 
-reportWebVitals();
+// reportWebVitals();
